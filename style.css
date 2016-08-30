@@ -135,6 +135,17 @@ audio {
   margin: -33px !important;
   padding: 0px !important;
 }
+/* Microsoft Edge Browser 12+ (All) - @supports method */
+@supports (-ms-ime-align:auto) {
+  .centro {
+    margin: -36px !important;
+  }
+}
+@-moz-document url-prefix() {
+  .centro {
+     margin: -35px !important;
+  }
+}
 .abajo {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
