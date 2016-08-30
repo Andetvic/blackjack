@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BlackJack - Proyecto Final</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Herramientas externas bootstrap y fontawesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://use.fontawesome.com/7c8432af53.js"></script>
+  <!-- Mis estilos propios -->
+  <link rel="stylesheet" href="blackjackStyle.css" media="screen" charset="utf-8">
+</head>
+<body>
+  <div>
+    <div class="container" id="cabecera">
+      <div class="col-md-10 col-xd-10">
+        <div class="text-right">
+          <span class="tituloPrincipal">Black</span>
+          <span class="tituloPrincipa2">jack</span>
+          <p class="autor">de Terry Tataje</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-xd-2">.</div>
+      <div class="miniMarco">
+        <div class="form-group text-center">
+        <input type="text" id="jugadorNombre" class="form-control input-lg" placeholder="Ingresa tu nombre" required maxlength="15" onKeyPress="return soloLetras(event);">
+        </div>
+        <div class="form-group text-center">
+        <span class="btn btn-success btn-lg" onclick="verifica();">Jugar</span>
+        </div>
+        <br>
+        <div class="alert alert-danger" id="advertencia"></div>
+      </div>
+      <div>
+        <div id="reglas">
+          <h2>Reglas</h2>
+          <ul class="lista">
+            <li>El juego inicia con el jugador recibiendo dos cartas.</li>
+            <li>El valor de las cartas es el que las cartas indican salvo en caso de J,Q y K donde el valor de las
+              cartas sera 10.</li>
+              <li>En el caso del As el valor sera 11 siempre que no exceda el valor total de 21 en cuyo caso As valdra 1.</li>
+              <li>Cuando usted se plante la Banca jugara</li>
+              <li>Si usted obtiene un valor total igual a 21 y la Banca obtiene uno inferior. Usted Gana</li>
+              <li>Si obtiene un puntaje mayor al puntaje de la Banca. Usted Gana</li>
+              <li>Si la Banca Obtiene un puntaje igual al suyo. Usted Empata</li>
+              <li>En cualquier otro caso Usted Pierde.</li>
+            </ul>
+          </div>
+          <span class="enlaceSimulado" onclick="ocultarmostras()" id="btnmo">Ocultar Reglas</span>
+        </div>
+      </div>
+      <div id="partida">
+        <div class="container">
+          <div class="col-md-4">
+            <p>
+              <strong>Casa</strong> - PJ <strong id="cPJ"></strong> PG <strong id="cPG"></strong> PE <strong id="cPE"></strong> PP <strong id="cPP"></strong>
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <div>
+              <span class="mt1">Black</span>
+              <span class="mt2">jack</span>
+              <p class="mautor">de Terry Tataje</p>
+            </div>
+          </div>
+          <div class="col-md-4 text-right">
+            <p>
+              <strong id="jugador">Jugador</strong> - PJ <strong id="jPJ"></strong> PG <strong id="jPG"></strong> PE <strong id="jPE"></strong> PP <strong id="jPP"></strong>
+            </p>
+          </div>
+        </div>
+        <div class="container">
+          <div class="col-md-6">
+            <h2 class="text-center">Casa</h2>
+            <div id="bancaCartas"></div>
+            <div id="elPuntaje" class="puntaje"></div>
+          </div>
+          <div class="col-md-6">
+            <h2 class="text-center" id="elJugador">Jugador</h2>
+            <div id="misCartas"><br><br></div>
+            <div id="miPuntaje" class="puntaje"><br><br></div>
+          </div>
+          <div class="col-md-12 col-xd-12 text-center">
+            <div id="ganador" class="ganador text-center"></div>
+            <span class="btn btn-success btn-lg" name="btnDameCarta" onClick="getCarta('misCartas',true);" id="btnDameCarta">Dame cartas</span>
+            <span class="btn btn-danger btn-lg" name="btnPlantarse" onClick="getCarta('bancaCartas',false);" id="btnPlantarse">Me planto!</span>
+            <span class="btn btn-primary btn-lg" name="btnNuevaPartida" onClick="nuevaPartida();" id="btnNuevaPartida">Nueva Partida</span>
+          </div>
+        </div>
+      </div>
+      <br>
+      <audio src="loop.ogg" preload="auto" type="video/ogg; codecs=dirac, speex" controls autoplay loop>
+        <p>Tu navegador no implementa el elemento audio</p>
+      </audio>
+      <br>
+    </div>
+    <footer>
+      <div class="container-fluid text-center">
+        <a href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);var dir2= encodeURIComponent(dir);window.location.href=('http://www.facebook.com/share.php?u='+dir2+'&amp;t='+tit2+'');">
+          <div class="col-md-3 col-xs-3 facebook">
+            <i class="fa fa-facebook fa-inverse fa-3x marco" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);window.location.href=('http://twitter.com/?status='+tit2+'%20'+dir+'');">
+          <div class="col-md-3 col-xs-3 twitter">
+            <i class="fa fa-twitter fa-inverse fa-3x marco" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a href="mailto:t5t6pe@gmail.com">
+          <div class="col-md-3 col-xs-3 email">
+            <i class="fa fa-envelope fa-inverse fa-3x marco" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a href="javascript:window.location.href='https://plus.google.com/share?url='+encodeURIComponent(location);void0;">
+          <div class="col-md-3 col-xs-3 googleplus">
+            <i class="fa fa-google-plus fa-inverse fa-3x marco" aria-hidden="true"></i>
+          </div>
+        </a>
+      </div>
+      <div class="text-center firma">
+        <p>2016 | Design by <a href="tel:997250489">Terry</a></p>
+      </div>
+    </footer>
+    <script type="text/javascript" src="codigo.js"></script>
+  </body>
+  </html>
