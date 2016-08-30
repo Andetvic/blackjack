@@ -62,59 +62,51 @@ function dibujarCartas(baraja, divID) {
   var textoEnDiv = '';
   for (var c = 0; c < baraja.length; c++) {
     var carta = baraja[c];
+    var textoCarta = '';
+    var simboloCarta = '';
+    var color = '';
     if (carta) {
-      dibujandoCarta = '<div class="cartas"> <div class="valor1">';
       switch (carta.valor) {
         case 1:
-        dibujandoCarta += 'a';
+        textoCarta = 'a';
         break;
         case 11:
-        dibujandoCarta += 'j';
+        textoCarta = 'j';
         break;
         case 12:
-        dibujandoCarta += 'q';
+        textoCarta = 'q';
         break;
         case 13:
-        dibujandoCarta += 'k';
+        textoCarta = 'k';
         break;
         default:
-        dibujandoCarta += carta.valor;
+        textoCarta = carta.valor;
       }
-      dibujandoCarta += '</div> <div> <div class="palo">';
       switch (carta.palo) {
         case "c":
-        dibujandoCarta += '<div class="rojo">&hearts;</div>';
+        simboloCarta = '&#9829;';
         break;
         case "d":
-        dibujandoCarta += '<div class="rojo">&diams;</div>';
+        simboloCarta = '&#9830;';
         break;
         case "e":
-        dibujandoCarta += '&spades;';
+        simboloCarta = '&#9824;';
         break;
         case "t":
-        dibujandoCarta += '&clubs;';
+        simboloCarta = '&#9827;';
         break;
         default:
-      };
-      dibujandoCarta += ' </div>';
-      dibujandoCarta += ' </div> <div class="valor2">'
-      switch (carta.valor) {
-        case 1:
-        dibujandoCarta += 'a';
-        break;
-        case 11:
-        dibujandoCarta += 'j';
-        break;
-        case 12:
-        dibujandoCarta += 'q';
-        break;
-        case 13:
-        dibujandoCarta += 'k';
-        break;
-        default:
-        dibujandoCarta += carta.valor;
       }
-      dibujandoCarta += ' </div> </div>';
+      if (simboloCarta == '&#9829;' || simboloCarta == '&#9830;') {
+        color = 'color';
+      } else {
+        color = '';
+      }
+      dibujandoCarta = '<div class="naipe ' + color + '">' +
+            '<div class="arriba">' + '<div class="letra">&#160;' + textoCarta + '</div>' + '<div>&#160;' + simboloCarta + '</div>' +
+			'</div><div class="centro">' + simboloCarta + '</div>' +
+			'<div class="abajo"><div class="letra">&#160;' + textoCarta + '</div>' +
+			'<div>&#160;' + simboloCarta + '</div></div></div>';
       textoEnDiv += dibujandoCarta;
     }
   }
@@ -201,13 +193,14 @@ function pintarMarcador(){
   document.getElementById('cPP').innerHTML = casa.puntajes.PP;
 }
 
-var cartasVolteadas = '<div class="cartaVolteada"></div><div class="cartaVolteada"></div>';
+var cartasVolteadas = '<div class="naipeVoltedo"></div><div class="naipeVoltedo"></div>';
 function getCarta(divID,isJugador){
   if(isJugador){ // Cuando es el jugador
     if(jugador.mano.length == 0){ // Si es la primera vez le da 2 cartas
       Array.prototype.push.apply(jugador.mano,Croupier.barajando(2));
       document.getElementById("bancaCartas").innerHTML = cartasVolteadas;
       document.getElementById("btnDameCarta").innerHTML = "Una mas !";
+      document.getElementById('btnPlantarse').style.display = "inline-block";
     }else{ // Cuando vuelva a pedir se le dará una sola carta
       Array.prototype.push.apply(jugador.mano,Croupier.barajando(1));
     }
@@ -316,7 +309,7 @@ function nuevaPartida() {
   document.getElementById('ganador').innerHTML = "";
   document.getElementById("btnDameCarta").innerHTML = "Dame cartas";
   document.getElementById('btnDameCarta').style.display = "inline-block";
-  document.getElementById('btnPlantarse').style.display = "inline-block";
+  document.getElementById('btnPlantarse').style.display = "none";
   document.getElementById('btnNuevaPartida').style.display = "none";
 }
 

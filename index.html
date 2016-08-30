@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://use.fontawesome.com/7c8432af53.js"></script>
   <!-- Mis estilos propios -->
-  <link rel="stylesheet" href="blackjackStyle.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
 </head>
 <body>
   <div>
@@ -25,10 +25,10 @@
       </div>
       <div class="col-md-2 col-xd-2">.</div>
       <div class="miniMarco">
-        <div class="form-group text-center">
-        <input type="text" id="jugadorNombre" class="form-control input-lg" placeholder="Ingresa tu nombre" required maxlength="15" onKeyPress="return soloLetras(event);">
+        <div class="form-group">
+        <input type="text" id="jugadorNombre" class="form-control input-lg text-center" placeholder="Ingresa tu nombre" required maxlength="15" onKeyPress="return soloLetras(event);">
         </div>
-        <div class="form-group text-center">
+        <div class="form-group">
         <span class="btn btn-success btn-lg" onclick="verifica();">Jugar</span>
         </div>
         <br>
@@ -41,17 +41,17 @@
             <li>El juego inicia con el jugador recibiendo dos cartas.</li>
             <li>El valor de las cartas es el que las cartas indican salvo en caso de J,Q y K donde el valor de las
               cartas sera 10.</li>
-              <li>En el caso del As el valor sera 11 siempre que no exceda el valor total de 21 en cuyo caso As valdra 1.</li>
-              <li>Cuando usted se plante la Banca jugara</li>
-              <li>Si usted obtiene un valor total igual a 21 y la Banca obtiene uno inferior. Usted Gana</li>
-              <li>Si obtiene un puntaje mayor al puntaje de la Banca. Usted Gana</li>
-              <li>Si la Banca Obtiene un puntaje igual al suyo. Usted Empata</li>
-              <li>En cualquier otro caso Usted Pierde.</li>
-            </ul>
-          </div>
-          <span class="enlaceSimulado" onclick="ocultarmostras()" id="btnmo">Ocultar Reglas</span>
+            <li>En el caso del As el valor sera 11 siempre que no exceda el valor total de 21 en cuyo caso As valdra 1.</li>
+            <li>Cuando usted se plante la Banca jugara</li>
+            <li>Si usted obtiene un valor total igual a 21 y la Banca obtiene uno inferior. Usted Gana</li>
+            <li>Si obtiene un puntaje mayor al puntaje de la Banca. Usted Gana</li>
+            <li>Si la Banca Obtiene un puntaje igual al suyo. Usted Empata</li>
+            <li>En cualquier otro caso Usted Pierde.</li>
+          </ul>
         </div>
+        <span class="enlaceSimulado" onclick="ocultarmostras()" id="btnmo">Ocultar Reglas</span>
       </div>
+    </div>
       <div id="partida">
         <div class="container">
           <div class="col-md-4">
@@ -74,12 +74,12 @@
         </div>
         <div class="container">
           <div class="col-md-6">
-            <h2 class="text-center">Casa</h2>
+            <h2 class="text-center">&#9824; Casa</h2>
             <div id="bancaCartas"></div>
             <div id="elPuntaje" class="puntaje"></div>
           </div>
           <div class="col-md-6">
-            <h2 class="text-center" id="elJugador">Jugador</h2>
+            <h2 class="text-center">&#9829; <span id="elJugador">Jugador</span></h2>
             <div id="misCartas"><br><br></div>
             <div id="miPuntaje" class="puntaje"><br><br></div>
           </div>
@@ -92,7 +92,9 @@
         </div>
       </div>
       <br>
-      <audio src="loop.ogg" preload="auto" type="video/ogg; codecs=dirac, speex" controls autoplay loop>
+      <audio preload="auto" controls autoplay loop>
+        <source src="loop.ogg" type="audio/ogg" ></source>
+        <source src="loop.mp3" type="audio/mpeg" ></source>
         <p>Tu navegador no implementa el elemento audio</p>
       </audio>
       <br>
@@ -101,22 +103,22 @@
       <div class="container-fluid text-center">
         <a href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);var dir2= encodeURIComponent(dir);window.location.href=('http://www.facebook.com/share.php?u='+dir2+'&amp;t='+tit2+'');">
           <div class="col-md-3 col-xs-3 facebook">
-            <i class="fa fa-facebook fa-inverse fa-3x marco" aria-hidden="true"></i>
+            <i class="fa fa-facebook fa-inverse fa-2x marco" aria-hidden="true"></i>
           </div>
         </a>
         <a href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);window.location.href=('http://twitter.com/?status='+tit2+'%20'+dir+'');">
           <div class="col-md-3 col-xs-3 twitter">
-            <i class="fa fa-twitter fa-inverse fa-3x marco" aria-hidden="true"></i>
+            <i class="fa fa-twitter fa-inverse fa-2x marco" aria-hidden="true"></i>
           </div>
         </a>
         <a href="mailto:t5t6pe@gmail.com">
           <div class="col-md-3 col-xs-3 email">
-            <i class="fa fa-envelope fa-inverse fa-3x marco" aria-hidden="true"></i>
+            <i class="fa fa-envelope fa-inverse fa-2x marco" aria-hidden="true"></i>
           </div>
         </a>
         <a href="javascript:window.location.href='https://plus.google.com/share?url='+encodeURIComponent(location);void0;">
           <div class="col-md-3 col-xs-3 googleplus">
-            <i class="fa fa-google-plus fa-inverse fa-3x marco" aria-hidden="true"></i>
+            <i class="fa fa-google-plus fa-inverse fa-2x marco" aria-hidden="true"></i>
           </div>
         </a>
       </div>
@@ -124,6 +126,6 @@
         <p>2016 | Design by <a href="tel:997250489">Terry</a></p>
       </div>
     </footer>
-    <script type="text/javascript" src="codigo.js"></script>
+    <script type="text/javascript" src="code.js"></script>
   </body>
   </html>
