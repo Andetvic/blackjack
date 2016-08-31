@@ -245,6 +245,17 @@ audio {
   }
 }
 
-@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
-
+@media handheld {
+  .naipe:hover {
+    -webkit-box-shadow: 0 0 15px 1px #C4C2C2;
+    box-shadow: 0 0 15px 1px #C4C2C2;
+    transform: none;
+    z-index: 8800;
+  }
+  .naipeVoltedo:hover {
+    -webkit-box-shadow: 0 0 15px 1px #C4C2C2;
+    box-shadow: 0 0 15px 1px #C4C2C2;
+    transform: none;
+    z-index: 8800;
+  }
 }
