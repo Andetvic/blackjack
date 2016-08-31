@@ -49,55 +49,51 @@
             <li>En cualquier otro caso Usted Pierde.</li>
           </ul>
         </div>
-        <span class="enlaceSimulado" onclick="ocultarmostras()" id="btnmo">Ocultar Reglas</span>
+        <span class="enlaceSimulado" onclick="ocultarmostras()" id="btnmo">Mostrar Reglas</span>
       </div>
     </div>
       <div id="partida">
         <div class="container">
           <div class="col-md-4">
-            <p>
-              <strong>Casa</strong> - PJ <strong id="cPJ"></strong> PG <strong id="cPG"></strong> PE <strong id="cPE"></strong> PP <strong id="cPP"></strong>
-            </p>
+            <div class="col-md-4 col-xs-4"><strong>Casa</strong></div><div class="col-md-8 col-xs-8">PJ <strong id="cPJ"></strong> PG <strong id="cPG"></strong> PE <strong id="cPE"></strong> PP <strong id="cPP"></strong></div>
           </div>
+          <div class="mesa">
           <div class="col-md-4 text-center">
             <div>
-              <span class="mt1">Black</span>
-              <span class="mt2">jack</span>
-              <p class="mautor">de Terry Tataje</p>
+                <span class="mt1">Black</span>
+                <span class="mt2">jack</span>
+                <p class="mautor">de Terry Tataje</p>
             </div>
           </div>
-          <div class="col-md-4 text-right">
-            <p>
-              <strong id="jugador">Jugador</strong> - PJ <strong id="jPJ"></strong> PG <strong id="jPG"></strong> PE <strong id="jPE"></strong> PP <strong id="jPP"></strong>
-            </p>
+          <div class="col-md-4">
+            <div class="col-md-4 col-xs-4"><strong id="jugador">Jugador</strong></div><div class="col-md-8 col-xs-8">PJ <strong id="jPJ"></strong> PG <strong id="jPG"></strong> PE <strong id="jPE"></strong> PP <strong id="jPP"></strong></div>
           </div>
-        </div>
-        <div class="container">
-          <div class="col-md-6">
-            <h2 class="text-center">&#9824; Casa</h2>
-            <div id="bancaCartas"></div>
-            <div id="elPuntaje" class="puntaje"></div>
+            <div class="col-md-6">
+              <h2 class="text-center">&#9824; Casa</h2>
+              <div id="bancaCartas"></div>
+              <div id="elPuntaje" class="puntaje"></div>
+            </div>
+            <div class="col-md-6">
+              <h2 class="text-center">&#9829; <span id="elJugador">Jugador</span></h2>
+              <div id="misCartas"><br><br></div>
+              <div id="miPuntaje" class="puntaje"><br><br></div>
+            </div>
+            <div class="ganador"><div id="ganador" class="texto"></div></div>
           </div>
-          <div class="col-md-6">
-            <h2 class="text-center">&#9829; <span id="elJugador">Jugador</span></h2>
-            <div id="misCartas"><br><br></div>
-            <div id="miPuntaje" class="puntaje"><br><br></div>
-          </div>
-          <div class="col-md-12 col-xd-12 text-center">
-            <div id="ganador" class="ganador text-center"></div>
-            <span class="btn btn-success btn-lg" name="btnDameCarta" onClick="getCarta('misCartas',true);" id="btnDameCarta">Dame cartas</span>
-            <span class="btn btn-danger btn-lg" name="btnPlantarse" onClick="getCarta('bancaCartas',false);" id="btnPlantarse">Me planto!</span>
-            <span class="btn btn-primary btn-lg" name="btnNuevaPartida" onClick="nuevaPartida();" id="btnNuevaPartida">Nueva Partida</span>
-          </div>
+            <div class="col-md-12 col-xd-12 text-center">
+              <span class="btn btn-success btn-lg" name="btnDameCarta" onClick="getCarta('misCartas',true);" id="btnDameCarta">Dame cartas</span>
+              <span class="btn btn-danger btn-lg" name="btnPlantarse" onClick="getCarta('bancaCartas',false);" id="btnPlantarse">Me planto!</span>
+              <span class="btn btn-primary btn-lg" name="btnNuevaPartida" onClick="nuevaPartida();" id="btnNuevaPartida">Nueva Partida</span>
+            </div>
         </div>
       </div>
-      <br>
+      <br><br>
       <audio preload="auto" controls autoplay loop>
         <source src="loop.ogg" type="audio/ogg" ></source>
         <source src="loop.mp3" type="audio/mpeg" ></source>
         <p>Tu navegador no implementa el elemento audio</p>
       </audio>
-      <br>
+      <br><br>
     </div>
     <footer>
       <div class="container-fluid text-center">

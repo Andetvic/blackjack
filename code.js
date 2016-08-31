@@ -120,7 +120,7 @@ function nombreJugador() {
   document.getElementById('elJugador').innerHTML = player;
 }
 
-var clic = 1;
+var clic = 0;
 function ocultarmostras() {
   if (clic==1) {
     document.getElementById("reglas").style.display = "none";

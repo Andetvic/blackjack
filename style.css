@@ -71,10 +71,29 @@ audio {
   font-size: 1em;
   margin-top: 0px;
 }
-.ganador  {
-  font-size: 3em;
+.mesa {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
-#partida, #advertencia, #btnNuevaPartida, #btnPlantarse {
+.ganador  {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+}
+.texto {
+  background-color: rgba(7, 57, 10, 0.5);
+  background: rgba(7, 57, 10, 0.5);
+  color: white;
+  line-height: 150%;
+  font-size: 6em;
+  font-weight: bold;
+  text-align: center;
+  transform: translateY(50%);
+}
+#reglas, #partida, #advertencia, #btnNuevaPartida, #btnPlantarse {
   display: none;
 }
 #partida {
@@ -111,7 +130,7 @@ audio {
 .naipe {
   background-color: white;
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
   border-color: black;
   border-radius: 10px;
   display: inline-block;
@@ -120,33 +139,34 @@ audio {
   width: 80px;
   text-transform: uppercase;
   vertical-align: top;
+  position: relative;
 }
 .naipe:hover {
   -webkit-box-shadow: 0 0 15px 1px #C4C2C2;
   box-shadow: 0 0 15px 1px #C4C2C2;
+  transform: scale(1.1) rotate(5deg);
+  z-index: 8800;
+}
+.naipe:nth-child(2),.naipe:nth-child(3),.naipe:nth-child(4),.naipe:nth-child(5),.naipe:nth-child(6),.naipe:nth-child(7),.naipe:nth-child(8),.naipe:nth-child(9) {
+  margin-left: -50px;
 }
 .arriba {
-  margin: 0px !important;
-  padding: 0px !important;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 1px;
 }
 .centro {
   font-size: 72px;
   text-align: center;
-  margin: -33px !important;
+  margin: -0px !important;
   padding: 0px !important;
-}
-/* Microsoft Edge Browser 12+ (All) - @supports method */
-@supports (-ms-ime-align:auto) {
-  .centro {
-    margin: -36px !important;
-  }
-}
-@-moz-document url-prefix() {
-  .centro {
-     margin: -35px !important;
-  }
+  position: absolute;
+  top: 11px;
+  right: 18px;
 }
 .abajo {
+  border-radius: 10px;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
@@ -154,6 +174,9 @@ audio {
   transform: rotate(180deg);
   margin: 0px !important;
   padding: 0px !important;
+  position: absolute;
+  top: 78px;
+  right: 0px;
 }
 .letra {
   font-weight: bold;
@@ -164,21 +187,26 @@ audio {
 }
 .naipeVoltedo {
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
   border-color: black;
   border-radius: 10px;
   display: inline-block;
   height: 125px;
   width: 80px;
-  background: #4c4c4c; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background-image: url('images/background.jpg');
+  background-color: gray;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .naipeVoltedo:hover {
   -webkit-box-shadow: 0 0 15px 1px #C4C2C2;
   box-shadow: 0 0 15px 1px #C4C2C2;
+  transform: scale(1.1) rotate(5deg);
+  z-index: 8800;
+}
+.naipeVoltedo:nth-child(2),.naipeVoltedo:nth-child(3),.naipeVoltedo:nth-child(4),.naipeVoltedo:nth-child(5),.naipeVoltedo:nth-child(6),.naipeVoltedo:nth-child(7),.naipeVoltedo:nth-child(8),.naipeVoltedo:nth-child(9) {
+  margin-left: -50px;
 }
 
 @media screen and (max-width: 640px) {
