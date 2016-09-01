@@ -78,26 +78,27 @@ audio {
   width: 100%;
 }
 .ganador  {
+  background-color: rgba(7, 57, 10, 0.5);
+  background: rgba(7, 57, 10, 0.5);
   position: absolute;
-  height: 100%;
-  width: 100%;
+  height: 250px;
+  max-width: 1140px;
+  text-align: center;
   z-index: 100;
 }
 .texto {
-  background-color: rgba(7, 57, 10, 0.5);
-  background: rgba(7, 57, 10, 0.5);
   color: white;
-  line-height: 150%;
   font-size: 6em;
   font-weight: bold;
   text-align: center;
-  transform: translateY(50%);
+  display: block;
+  position: relative;
 }
 #reglas, #partida, #advertencia, #btnNuevaPartida, #btnPlantarse {
   display: none;
 }
 #partida {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .facebook {
   background-color: #3b5998;
@@ -242,20 +243,5 @@ audio {
   .autor {
     font-size: 1em;
     margin-top: 10px;
-  }
-}
-
-@media handheld {
-  .naipe:hover {
-    -webkit-box-shadow: 0 0 15px 1px #C4C2C2;
-    box-shadow: 0 0 15px 1px #C4C2C2;
-    transform: none;
-    z-index: 8800;
-  }
-  .naipeVoltedo:hover {
-    -webkit-box-shadow: 0 0 15px 1px #C4C2C2;
-    box-shadow: 0 0 15px 1px #C4C2C2;
-    transform: none;
-    z-index: 8800;
   }
 }

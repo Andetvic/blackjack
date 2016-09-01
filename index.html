@@ -57,7 +57,6 @@
           <div class="col-md-4">
             <div class="col-md-4 col-xs-4"><strong>Casa</strong></div><div class="col-md-8 col-xs-8">PJ <strong id="cPJ"></strong> PG <strong id="cPG"></strong> PE <strong id="cPE"></strong> PP <strong id="cPP"></strong></div>
           </div>
-          <div class="mesa">
           <div class="col-md-4 text-center">
             <div>
                 <span class="mt1">Black</span>
@@ -68,22 +67,27 @@
           <div class="col-md-4">
             <div class="col-md-4 col-xs-4"><strong id="jugador">Jugador</strong></div><div class="col-md-8 col-xs-8">PJ <strong id="jPJ"></strong> PG <strong id="jPG"></strong> PE <strong id="jPE"></strong> PP <strong id="jPP"></strong></div>
           </div>
-            <div class="col-md-6">
-              <h2 class="text-center">&#9824; Casa</h2>
-              <div id="bancaCartas"></div>
-              <div id="elPuntaje" class="puntaje"></div>
+          <div class="mesa">
+            <div class="ganador">
+              <div id="ganador" class="texto"></div>
+              <span class="btn btn-primary btn-lg" name="btnNuevaPartida" onClick="nuevaPartida();" id="btnNuevaPartida">Nueva Partida</span>
             </div>
-            <div class="col-md-6">
-              <h2 class="text-center">&#9829; <span id="elJugador">Jugador</span></h2>
-              <div id="misCartas"><br><br></div>
-              <div id="miPuntaje" class="puntaje"><br><br></div>
+            <div class="">
+              <div class="col-md-6">
+                <h2 class="text-center">&#9824; Casa</h2>
+                <div id="bancaCartas"></div>
+                <div id="elPuntaje" class="puntaje"></div>
+              </div>
+              <div class="col-md-6">
+                <h2 class="text-center">&#9829; <span id="elJugador">Jugador</span></h2>
+                <div id="misCartas"><br><br></div>
+                <div id="miPuntaje" class="puntaje"><br><br></div>
+              </div>
             </div>
-            <div class="ganador"><div id="ganador" class="texto"></div></div>
           </div>
             <div class="col-md-12 col-xd-12 text-center">
               <span class="btn btn-success btn-lg" name="btnDameCarta" onClick="getCarta('misCartas',true);" id="btnDameCarta">Dame cartas</span>
               <span class="btn btn-danger btn-lg" name="btnPlantarse" onClick="getCarta('bancaCartas',false);" id="btnPlantarse">Me planto!</span>
-              <span class="btn btn-primary btn-lg" name="btnNuevaPartida" onClick="nuevaPartida();" id="btnNuevaPartida">Nueva Partida</span>
             </div>
         </div>
       </div>
